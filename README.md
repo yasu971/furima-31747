@@ -29,7 +29,7 @@ items テーブル
 | exhibitor_prefectures | integer    | null: false |
 | delivery_period       | integer    | null: false |
 | price                 | integer    | null: false |
-| user_id               | references |             |
+| user_id               | references | foreign_key |
 
 ### Association
 - belongs_to :users
@@ -39,7 +39,7 @@ purchases テーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | current_user_id   | references | foreign_key |
-| item_id           | references |             |
+| item_id           | references | foreign_key |
 | purchase_datetime | datetime   | null: false |
 
 ### Association
@@ -48,14 +48,15 @@ purchases テーブル
 - has_one :profile
 
 addresses テーブル
-| Column                | Type     | Options     |
-| --------------------- | -------- | ----------- |
-| postal_code           | string   | null: false |
-| purchaser_prefectures | string   | null: false |
-| municipality          | string   | null: false |
-| house_number          | string   | null: false |
-| building_name         | string   |             |
-| telephone_number      | string   | null: false |
+| Column                | Type       | Options     |
+| --------------------- | ---------- | ----------- |
+| address_id            | references | foreign_key |
+| postal_code           | string     | null: false |
+| purchaser_prefectures | string     | null: false |
+| municipality          | string     | null: false |
+| house_number          | string     | null: false |
+| building_name         | string     |             |
+| telephone_number      | string     | null: false |
 
 ### Association
 - belongs_to :purchases
