@@ -54,7 +54,7 @@ addresses テーブル
 | purchaser_prefectures | string   | null: false |
 | municipality          | string   | null: false |
 | house_number          | string   | null: false |
-| building_name         | string   | null: false |
+| building_name         | string   |             |
 | telephone_number      | string   | null: false |
 
 ### Association
