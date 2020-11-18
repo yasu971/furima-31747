@@ -21,7 +21,7 @@ users テーブル
 items テーブル
 | Column                | Type       | Options     |
 | --------------------- | ---------- | ----------- |
-| name                  | text       | null: false |
+| name                  | string     | null: false |
 | description           | text       | null: false |
 | category              | string     | null: false |
 | item_condition        | string     | null: false |
