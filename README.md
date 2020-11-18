@@ -19,38 +19,37 @@ users テーブル
 - has_many :purchases
 
 items テーブル
-| Column                | Type       | Options     |
-| --------------------- | ---------- | ----------- |
-| name                  | string     | null: false |
-| description           | text       | null: false |
-| category              | integer    | null: false |
-| item_condition        | integer    | null: false |
-| delivery_fee_burden   | integer    | null: false |
-| exhibitor_prefectures | integer    | null: false |
-| delivery_period       | integer    | null: false |
-| price                 | integer    | null: false |
-| user_id               | references | foreign_key |
+| Column                   | Type       | Options     |
+| ------------------------ | ---------- | ----------- |
+| name                     | string     | null: false |
+| description              | text       | null: false |
+| category_id              | integer    | null: false |
+| item_condition_id        | integer    | null: false |
+| delivery_fee_burden_id   | integer    | null: false |
+| exhibitor_prefectures_id | integer    | null: false |
+| delivery_period_id       | integer    | null: false |
+| price                    | integer    | null: false |
+| user                     | references | foreign_key |
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_one :purchase
 
 purchases テーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
-| current_user_id   | references | foreign_key |
-| item_id           | references | foreign_key |
-| purchase_datetime | datetime   | null: false |
+| user              | references | foreign_key |
+| item              | references | foreign_key |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :profile
 
 addresses テーブル
 | Column                | Type       | Options     |
 | --------------------- | ---------- | ----------- |
-| address_id            | references | foreign_key |
+| purchase              | references | foreign_key |
 | postal_code           | string     | null: false |
 | purchaser_prefectures | string     | null: false |
 | municipality          | string     | null: false |
@@ -59,4 +58,4 @@ addresses テーブル
 | telephone_number      | string     | null: false |
 
 ### Association
-- belongs_to :purchases
+- belongs_to :purchase
