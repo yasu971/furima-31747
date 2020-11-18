@@ -50,7 +50,7 @@ purchases テーブル
 addresses テーブル
 | Column                | Type     | Options     |
 | --------------------- | -------- | ----------- |
-| Postal_code           | integer  | null: false |
+| postal_code           | string   | null: false |
 | purchaser_prefectures | string   | null: false |
 | municipality          | string   | null: false |
 | house_number          | string   | null: false |
