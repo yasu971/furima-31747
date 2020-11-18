@@ -38,7 +38,7 @@ items テーブル
 purchases テーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
-| current_user_id   | references |             |
+| current_user_id   | references | foreign_key |
 | item_id           | references |             |
 | purchase_datetime | datetime   | null: false |
 
