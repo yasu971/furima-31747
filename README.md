@@ -3,16 +3,16 @@ DB設計
 
 users テーブル
 
-| Column          | Type     | Options     |
-| --------------- | -------- | ----------- |
-| nickname        | string   | null: false |
-| email           | string   | null: false,unique: true |
-| password        | string   | null: false |
-| last_name       | string   | null: false |
-| first_name      | string   | null: false |
-| last_name_kana  | string   | null: false |
-| first_name_kana | string   | null: false |
-| birthday        | date     | null: false |
+| Column             | Type     | Options     |
+| ------------------ | -------- | ----------- |
+| nickname           | string   | null: false |
+| email              | string   | null: false,unique: true |
+| encrypted_password | string   | null: false |
+| last_name          | string   | null: false |
+| first_name         | string   | null: false |
+| last_name_kana     | string   | null: false |
+| first_name_kana    | string   | null: false |
+| birthday           | date     | null: false |
 
 ### Association
 - has_many :items
@@ -44,18 +44,18 @@ purchases テーブル
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :profile
+- has_one :address
 
 addresses テーブル
-| Column                | Type       | Options     |
-| --------------------- | ---------- | ----------- |
-| purchase              | references | foreign_key |
-| postal_code           | string     | null: false |
-| purchaser_prefectures | string     | null: false |
-| municipality          | string     | null: false |
-| house_number          | string     | null: false |
-| building_name         | string     |             |
-| telephone_number      | string     | null: false |
+| Column                   | Type       | Options     |
+| ------------------------ | ---------- | ----------- |
+| purchase                 | references | foreign_key |
+| postal_code              | string     | null: false |
+| purchaser_prefectures_id | integer    | null: false |
+| municipality             | string     | null: false |
+| house_number             | string     | null: false |
+| building_name            | string     |             |
+| telephone_number         | string     | null: false |
 
 ### Association
 - belongs_to :purchase
