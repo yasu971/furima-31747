@@ -22,7 +22,6 @@ items テーブル
 | Column                | Type       | Options     |
 | --------------------- | ---------- | ----------- |
 | name                  | text       | null: false |
-| image                 |            |             |
 | description           | text       | null: false |
 | category              | string     | null: false |
 | item_condition        | string     | null: false |
