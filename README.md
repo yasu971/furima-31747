@@ -23,11 +23,11 @@ items テーブル
 | --------------------- | ---------- | ----------- |
 | name                  | string     | null: false |
 | description           | text       | null: false |
-| category              | string     | null: false |
-| item_condition        | string     | null: false |
-| delivery_fee_burden   | boolean    | null: false |
-| exhibitor_prefectures | string     | null: false |
-| delivery_period       | string     | null: false |
+| category              | integer    | null: false |
+| item_condition        | integer    | null: false |
+| delivery_fee_burden   | integer    | null: false |
+| exhibitor_prefectures | integer    | null: false |
+| delivery_period       | integer    | null: false |
 | price                 | integer    | null: false |
 | user_id               | references |             |
 
