@@ -16,7 +16,7 @@ users テーブル
 
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
 items テーブル
 | Column                   | Type       | Options     |
@@ -26,16 +26,16 @@ items テーブル
 | category_id              | integer    | null: false |
 | item_condition_id        | integer    | null: false |
 | delivery_fee_burden_id   | integer    | null: false |
-| exhibitor_prefectures_id | integer    | null: false |
+| prefectures_id           | integer    | null: false |
 | delivery_period_id       | integer    | null: false |
 | price                    | integer    | null: false |
 | user                     | references | foreign_key |
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 
-purchases テーブル
+orders テーブル
 | Column            | Type       | Options     |
 | ----------------- | ---------- | ----------- |
 | user              | references | foreign_key |
@@ -49,13 +49,13 @@ purchases テーブル
 addresses テーブル
 | Column                   | Type       | Options     |
 | ------------------------ | ---------- | ----------- |
-| purchase                 | references | foreign_key |
+| order                    | references | foreign_key |
 | postal_code              | string     | null: false |
-| purchaser_prefectures_id | integer    | null: false |
+| prefectures_id           | integer    | null: false |
 | municipality             | string     | null: false |
 | house_number             | string     | null: false |
 | building_name            | string     |             |
 | telephone_number         | string     | null: false |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
