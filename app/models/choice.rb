@@ -1,18 +1,16 @@
   class Choice < ActiveHash::Base
-    self.category_id = [
+    self.data = [
       { id: 1, name: '--' },
-      { id: 2, name: '経済' },
-      { id: 3, name: '政治' },
-      { id: 4, name: '地域' },
-      { id: 5, name: '国際' },
-      { id: 6, name: 'IT' },
-      { id: 7, name: 'エンタメ' },
-      { id: 8, name: 'スポーツ' },
-      { id: 9, name: 'グルメ' },
-      { id: 10, name: 'その他' }
+      { id: 2, name: '選択1' },
+      { id: 3, name: '選択2' },
+      { id: 4, name: '選択3' },
+      { id: 5, name: '選択4' },
+      { id: 6, name: '選択5' },
+      { id: 7, name: '選択6' },
+      { id: 8, name: '選択7' },
     ]
 
     include ActiveHash::Associations
-    has_many :articles
-        
+    has_many :items
+
     end
