@@ -27,29 +27,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it "カテゴリーがないと商品出品されない" do
-        @item.category_id = nil
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end     
       it "商品の状態がないと商品出品されない" do
-        @item.item_condition_id = nil
+        @item.item_condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item condition can't be blank")
+        expect(@item.errors.full_messages).to include("Item condition must be other than 1")
       end     
       it "配送料の負担がないと商品出品されない" do
-        @item.delivery_fee_burden_id = nil
+        @item.delivery_fee_burden_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee burden can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery fee burden must be other than 1")
       end     
       it "発送元の地域がないと商品出品されない" do
-        @item.prefectures_id = nil
+        @item.prefectures_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include()
       end     
       it "発送までの日数がないと商品出品されない" do
-        @item.delivery_period_id = nil
+        @item.delivery_period_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery period can't be blank")
+        expect(@item.errors.full_messages).to include("Delivery period must be other than 1")
       end     
       it "販売価格がないと商品出品されない" do
         @item.price = nil
