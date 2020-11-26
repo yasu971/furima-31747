@@ -145,15 +145,9 @@
             <%= item.name %>
           </h3>
           <div class='item-price'>
-            <span>
-            <%= item.price %>円<br>
-            <%# <%= '配送料負担' %>
-            <% if item.delivery_fee_burden_id == 2 %>
-             <%= '着払い(購入者負担)' %>
-            <% else %>
-             <%= '送料込み(出品者負担)' %>
-            <% end %>
-            </span>
+           <span><%= item.price %>円<br><br>
+           <%= item.delivery_fee_burden_id %>
+           </span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
