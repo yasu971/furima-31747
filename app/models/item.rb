@@ -2,7 +2,12 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :prefecture, :category, :delivery_fee_burden, :delivery_period, :item_condition
+  belongs_to :category
+  belongs_to :prefecture
+  belongs_to :delivery_fee_burden
+  belongs_to :delivery_period
+  belongs_to :item_condition
+  belongs_to :item_condition
   validates :name, :description ,:image, presence: true
   validates :category_id, :item_condition_id, :delivery_fee_burden_id, :delivery_fee_burden_id, :delivery_period_id, numericality: { other_than: 1 } 
   
