@@ -131,13 +131,13 @@
       <%# 以下が一覧表示にて、追加した部分 %>
   <% @items.each do |item| %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to item_path(item.id), method: :get do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <div class='sold-out'>
+          <%# <div class='sold-out'>
             <span>Sold Out!!</span>
-          </div>
+          </div> %>
 
         </div>
         <div class='item-info'>
