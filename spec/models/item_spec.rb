@@ -42,7 +42,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery fee burden must be other than 1")
       end     
       it "発送元の地域がないと商品出品されない" do
-        @item.prefecture_id = 1
+        @item.prefectures_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include()
       end     
