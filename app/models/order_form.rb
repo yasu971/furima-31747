@@ -10,6 +10,7 @@ class OrderForm
   validates :municipality, presence: true
   validates :house_number, presence: true
   validates :telephone_number, presence: true
+  validates :token, presence: true
   
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
