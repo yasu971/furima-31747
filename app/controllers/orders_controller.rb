@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :create]
 
   def index
     @item = Item.find(params[:item_id])
@@ -6,15 +7,12 @@ class OrdersController < ApplicationController
   end
 
   def new
-    # @order = OrderForm.new
-    # @order = Order.new
     @order_form = OrderForm.new
   end
 
   def create
     @item = Item.find(params[:item_id])
     @order_form = OrderForm.new(set_params)
-    # binding.pry
     if @order_form.valid?
       pay_item
       @order_form.save
@@ -38,5 +36,4 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
-
 end
