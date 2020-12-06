@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
 
   def index
    @items = Item.all.order("created_at DESC")
+   @order_form = OrderForm.new
+   @orders = Order.all
   end
 
   def new
