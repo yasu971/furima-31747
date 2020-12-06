@@ -8,6 +8,20 @@ RSpec.describe OrderForm, type: :model do
     it 'すべての値が正しく入力されていれば保存できること' do
     expect(@order_form).to be_valid
     end
+    it '建物名は空でも保存できること' do
+      @order_form.building_name = nil
+      expect(@order_form).to be_valid
+    end    
+    it 'user_idが空だと保存できないこと' do
+        @order_form.user_id = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("User can't be blank")
+    end
+    it 'item_idが空だと保存できないこと' do
+      @order_form.item_id = nil
+      @order_form.valid?
+      expect(@order_form.errors.full_messages).to include("Item can't be blank")
+    end
     it 'トークンが空だと保存できないこと' do
       @order_form.token = nil
       @order_form.valid?
@@ -38,10 +52,6 @@ RSpec.describe OrderForm, type: :model do
       @order_form.valid?
       expect(@order_form.errors.full_messages).to include("House number can't be blank")
     end
-    it '建物名は空でも保存できること' do
-      @order_form.building_name = nil
-      expect(@order_form).to be_valid
-    end    
     it '電話番号が空だと保存できないこと' do
       @order_form.telephone_number = nil
       @order_form.valid?
