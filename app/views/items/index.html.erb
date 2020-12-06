@@ -130,14 +130,12 @@
       
       <%# 以下が一覧表示にて、追加した部分 %>
   <% @items.each do |item| %>
-    <%# <% @orders.each do |order| %> %>
       <li class='list'>
         <%= link_to item_path(item.id), method: :get do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-
-        <%# <% if item.id == order.item_id %>
+        <%# <% if item.record != nil %>
           <%# <div class='sold-out'>
             <span>Sold Out!!</span>
           </div> %>
@@ -160,7 +158,6 @@
         </div>
         <% end %>
       </li>
-    <%# <% end %> %>
   <% end %>
 
 
