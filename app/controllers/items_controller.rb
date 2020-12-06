@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @order_form = OrderForm.new
   end
 
   def edit
