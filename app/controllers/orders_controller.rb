@@ -4,11 +4,13 @@ class OrdersController < ApplicationController
 
   def index
     @order_form = OrderForm.new
-  end
-
-  def new
-    @order_form = OrderForm.new
-  end
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+    if @item.order != nil
+      redirect_to root_path
+    end
+end
 
   def create
     @order_form = OrderForm.new(set_params)
