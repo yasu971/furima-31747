@@ -4,12 +4,14 @@ class ItemsController < ApplicationController
 
   def index
    @items = Item.all.order("created_at DESC")
+
   end
 
   def new
     @item = Item.new
   end
 
+  
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -23,7 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user != current_user
+    if @item.user != current_user || @item.order != nil
       redirect_to root_path
     end
   end
