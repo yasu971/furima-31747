@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def index
    @items = Item.all.order("created_at DESC")
    @order_form = OrderForm.new
-   @orders = Order.all
+
   end
 
   def new
@@ -28,6 +28,10 @@ class ItemsController < ApplicationController
 
   def edit
     if @item.user != current_user
+      redirect_to root_path
+    end
+    if @item.order != nil
+      return
       redirect_to root_path
     end
   end
