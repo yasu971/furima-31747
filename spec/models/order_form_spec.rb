@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe OrderForm, type: :model do
   describe '住所情報の保存' do
     before do
-      @order_form = FactoryBot.build(:order_form)
+      user = FactoryBot.create(:user)
+      item = FactoryBot.create(:item)
+      @order_form = FactoryBot.build(:order_form, user_id: user.id, item_id: item.id)
     end
     it 'すべての値が正しく入力されていれば保存できること' do
     expect(@order_form).to be_valid
@@ -65,7 +67,7 @@ RSpec.describe OrderForm, type: :model do
     it '電話番号が12桁以上だと保存できないこと' do
       @order_form.telephone_number = '090123456789'
       @order_form.valid?
-      expect(@order_form.errors.full_messages).to include()
+      expect(@order_form.errors.full_messages).to include("Telephone number is too long (maximum is 11 characters)")
     end    
       
   end
