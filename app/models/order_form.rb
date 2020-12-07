@@ -9,8 +9,7 @@ class OrderForm
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :municipality
     validates :house_number
-    validates :telephone_number
-    validates :telephone_number, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters."}
+    validates :telephone_number, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters."}, length: { maximum: 11 }
   end
   
   validates :prefecture_id, numericality: { other_than: 1 } 
